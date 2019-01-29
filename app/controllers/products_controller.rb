@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
 
-    before_action: set_products, only [:show, :update, :destroy]
+    before_action :set_product, only: [:show, :update, :destroy]
     def index 
-        @products = Product.all  
-        render json: @product  
+        @products = Product.all
+        render json: @products
     end
     
     

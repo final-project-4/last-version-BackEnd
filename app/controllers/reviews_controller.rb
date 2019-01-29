@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-    before_action: set_reviews, only [:show, :update, :destroy]
+    before_action :set_review, only: [:show, :update, :destroy]
     def index 
         @reviews = Review.all  
         render json: @reviews  
@@ -13,12 +13,12 @@ class ReviewsController < ApplicationController
     
     
     def create 
-        @review = Review.create(Reviews_params)
+        @review = Review.create(review_params)
         render json: @review
     end 
     
     def update 
-        @review.update_attributes(Review_params)
+        @review.update_attributes(review_params)
         render json: @review
     end
     
@@ -32,14 +32,11 @@ class ReviewsController < ApplicationController
     private 
     
     def set_review
-    end 
     @review = Review.find(params[:id])
-
     end
+
     def review_params
         params.require(:review).permit(
         :comment, :raiting, :user_id, :product_id)
     end 
-    
-
 end
