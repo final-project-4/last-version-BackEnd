@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
     end
     
     
+    
     def destroy
         @review.destroy
         render json: {message:"success"}

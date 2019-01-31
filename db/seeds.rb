@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # categories:
+Product.destroy_all
+Category.destroy_all
+Review.destroy_all
+User.destroy_all
 
 books = Category.create({
     name: "books",

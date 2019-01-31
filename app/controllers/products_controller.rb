@@ -13,12 +13,12 @@ class ProductsController < ApplicationController
     
     
     def create 
-        @product = Product.create(products_params)
+        @product = Product.create(product_params)
         render json: @product
     end 
     
     def update 
-        @product.update_attributes(Product_params)
+        @product.update_attributes(product_params)
         render json: @product
     end
     
