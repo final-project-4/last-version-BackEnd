@@ -12,4 +12,12 @@ Rails.application.routes.draw do
    get "/reviews", to: "reviews#index"
    get "/products", to: "products#index"
    #get "/categories", to: "categories#index"
+
+   resources :conversations, only: [:index, :create]
+   resources :messages, only: [:create]
+   mount ActionCable.server => '/cable'
+
+   post "/users", to: "users#create"
+   get "/users/:id", to: "users#show"
+   post "/login", to: "sessions#create"
 end
